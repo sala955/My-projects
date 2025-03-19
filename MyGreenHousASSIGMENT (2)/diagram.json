@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "author": "Sala Alaghbari",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 64.2,
+      "left": -17.8,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -109.2,
+      "left": -101.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -109.2,
+      "left": 272.6,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 52.8,
+      "left": -106.15,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -14.4,
+      "left": 220.25,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -114.9,
+      "left": 61.8,
+      "attrs": { "temperature": "17.9", "humidity": "19" }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": -83.4,
+      "left": 109.2,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -125.8,
+      "left": 299.4,
+      "rotate": 270,
+      "attrs": {}
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 219.5, "left": 287.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "dht1:VCC", "uno:5V", "limegreen", [ "v0" ] ],
+    [ "dht1:SDA", "uno:13", "gold", [ "v0" ] ],
+    [ "dht1:GND", "uno:GND.1", "red", [ "v0" ] ],
+    [ "relay1:VCC", "uno:5V", "green", [ "v0" ] ],
+    [ "relay1:GND", "uno:GND.1", "red", [ "v0" ] ],
+    [ "relay1:IN", "uno:4", "magenta", [ "v0" ] ],
+    [ "relay1:NO", "r2:1", "purple", [ "v0" ] ],
+    [ "led2:A", "r2:2", "green", [ "v0" ] ],
+    [ "led2:C", "uno:GND.1", "red", [ "v0" ] ],
+    [ "servo1:GND", "uno:GND.2", "red", [ "v0" ] ],
+    [ "servo1:V+", "uno:5V", "green", [ "v0" ] ],
+    [ "servo1:PWM", "uno:9", "yellow", [ "v0" ] ],
+    [ "pot1:GND", "uno:GND.3", "red", [ "v0" ] ],
+    [ "pot1:SIG", "uno:A0", "cyan", [ "v0" ] ],
+    [ "pot1:VCC", "uno:5V", "green", [ "v0" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "uno:2", "cyan", [ "h0" ] ],
+    [ "led1:C", "uno:GND.3", "red", [ "v0" ] ],
+    [ "led2:A", "uno:7", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
